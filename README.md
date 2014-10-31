@@ -2,25 +2,49 @@
 
 The light-weight timer application that can run in terminal.
 
+## Requirement
+
+- Ruby 2.0 or later.
+
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'rbtclk'
+```shell
+$ (sudo) gem install 'rbtclk'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install rbtclk
 
 ## Usage
 
-TODO: Write usage instructions here
+### Basic usage
+
+```shell
+$ rbtclk
+```
+
+### Mode
+
+Now we support only a clock mode.  
+Countdown timer mode and Countup timer mode are our future works.
+
+#### example
+
+```shell
+$ rbtclk --mode clock
+$ rbtclk -m clock
+```
+
+### Change font
+
+This application depends on artii library (https://github.com/miketierney/artii).
+You can use any fonts that are supported by artii.
+
+#### example
+
+```shell
+$ rbtclk --font clb8x8 # default
+$ rbtclk --font univers
+$ rbtclk --font doh
+$ rbtclk --font smkeyboard
+```
 
 ## Contributing
 
