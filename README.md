@@ -46,6 +46,10 @@ $ rbtclk --font doh
 $ rbtclk --font smkeyboard
 ```
 
+## Code Status
+
+- [![Build Status](https://travis-ci.org/mozamimy/rbtclk.svg?branch=master)](https://travis-ci.org/mozamimy/rbtclk)
+
 ## Contributing
 
 1. Fork it ( https://github.com/mozamimy/rbtclk/fork )
