@@ -2,6 +2,7 @@ require "curses"
 require "optparse"
 require "rbtclk/version"
 require "rbtclk/clock"
+require "rbtclk/countup_timer"
 
 module Rbtclk
   class << self
@@ -19,6 +20,9 @@ module Rbtclk
       case params[:mode] || "clock"
       when "clock"
         timer = Clock.new(font: params[:font] || "clb8x8", format: params[:format] || "%X")
+        timer.show
+      when "countup"
+        timer = CountupTimer.new(font: params[:font] || "clb8x8", format: params[:format] || "%X")
         timer.show
       else
         warn "#{params[:mode]} mode is not supported."
