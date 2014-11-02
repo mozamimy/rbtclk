@@ -1,6 +1,6 @@
 # Rbtclk
 
-The light-weight timer application that can run in terminal.
+A light-weight timer application that can run in terminal emulators :rabbit:
 
 ## Requirement
 
@@ -20,16 +20,51 @@ $ (sudo) gem install 'rbtclk'
 $ rbtclk
 ```
 
+```
+    ##    ######            ######    ####                ##      ###
+   ###    ##         ##     ##       ##  ##     ##       ###     ##
+    ##    #####      ##     #####    ##  ##     ##      ####    ##
+    ##        ##                ##   ##  ##            ## ##    #####
+    ##        ##                ##   ##  ##            ######   ##  ##
+    ##    ##  ##     ##     ##  ##   ##  ##     ##        ##    ##  ##
+    ##     ####      ##      ####     ####      ##       ####    ####
+```
+
 ### Mode
 
-Now we support only a clock mode.  
-Countdown timer mode and countup timer mode are our future works.
+Now we support only clock mode and countup mode.  
+Countdown timer mode is our future works.
 
 #### Example
 
 ```shell
 $ rbtclk --mode clock
 $ rbtclk -m clock
+```
+
+```
+    ##    ######            ######    ####                ##      ###
+   ###    ##         ##     ##       ##  ##     ##       ###     ##
+    ##    #####      ##     #####    ##  ##     ##      ####    ##
+    ##        ##                ##   ##  ##            ## ##    #####
+    ##        ##                ##   ##  ##            ######   ##  ##
+    ##    ##  ##     ##     ##  ##   ##  ##     ##        ##    ##  ##
+    ##     ####      ##      ####     ####      ##       ####    ####
+```
+
+```shell
+$ rbtclk --mode countup
+$ rbtclk -m countup
+```
+
+```
+  ####     ####              ####     ####                ##     ####
+ ##  ##   ##  ##     ##     ##  ##   ##  ##     ##       ###    ##  ##
+ ##  ##   ##  ##     ##     ##  ##   ##  ##     ##        ##        ##
+ ##  ##   ##  ##            ##  ##   ##  ##               ##      ###
+ ##  ##   ##  ##            ##  ##   ##  ##               ##        ##
+ ##  ##   ##  ##     ##     ##  ##   ##  ##     ##        ##    ##  ##
+  ####     ####      ##      ####     ####      ##        ##     ####
 ```
 
 ### Change font
@@ -41,10 +76,70 @@ You can use any fonts that are supported by artii.
 
 ```shell
 $ rbtclk --font clb8x8 # default
+```
+
+```
+    ##    ######            ######    ####                ##      ###
+   ###    ##         ##     ##       ##  ##     ##       ###     ##
+    ##    #####      ##     #####    ##  ##     ##      ####    ##
+    ##        ##                ##   ##  ##            ## ##    #####
+    ##        ##                ##   ##  ##            ######   ##  ##
+    ##    ##  ##     ##     ##  ##   ##  ##     ##        ##    ##  ##
+    ##     ####      ##      ####     ####      ##       ####    ####
+```
+
+```shell
 $ rbtclk --font univers
-$ rbtclk --font doh
+```
+
+```
+    88  8888888888        8888888888     ad8888ba,          ,a8888a,       ad8888ba,
+  ,d88  88                88            8P'    "Y8        ,8P"'  `"Y8,    8P'    "Y8
+888888  88  ____          88  ____     d8                ,8P        Y8,  d8
+    88  88a8PPPP8b,  888  88a8PPPP8b,  88,dd888bb,  888  88          88  88,dd888bb,
+    88  PP"     `8b  888  PP"     `8b  88P'    `8b  888  88          88  88P'    `8b
+    88           d8                d8  88       d8       `8b        d8'  88       d8
+    88  Y8a     a8P  888  Y8a     a8P  88a     a8P  888   `8ba,  ,ad8'   88a     a8P
+    88   "Y88888P"   888   "Y88888P"    "Y88888P"   888     "Y8888P"      "Y88888P"
+```
+
+```shell
 $ rbtclk --font smkeyboard
 ```
+
+```
+ ____ ____ ____ ____ ____ ____ ____ ____
+||1 |||5 |||: |||5 |||6 |||: |||4 |||6 ||
+||__|||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+```
+
+### Specify format
+
+You can specify format of time by Time#strftime style.  
+Default format is "%X".
+
+#### Example
+
+```shell
+$ rbtclk --format "* %H:%M *"
+```
+
+```
+    #                 ##      ###              ####       ##                #
+    #                ###     ##        ##     ##  ##     ###                #
+ ## # ##              ##    ##         ##     ##  ##    ####             ## # ##
+   ###                ##    #####             ##  ##   ## ##               ###
+    #                 ##    ##  ##            ##  ##   ######               #
+   # #                ##    ##  ##     ##     ##  ##      ##               # #
+  #   #               ##     ####      ##      ####      ####             #   #
+```
+
+## Progress Report
+
+- [x] Clock
+- [x] Countup Timer
+- [ ] Countdown Timer
 
 ## Code Status
 
