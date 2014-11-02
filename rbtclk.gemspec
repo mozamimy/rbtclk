@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = Rbtclk::VERSION
   spec.authors       = ["Moza USANE"]
   spec.email         = ["mozamimy@quellencode.org"]
-  spec.summary       = %q{The light-weight timer application that can run in terminal.}
-  spec.description   = %q{The light-weight timer application that can run in terminal.}
+  spec.summary       = %q{A light-weight timer application that can run in terminal emulators.}
+  spec.description   = %q{A light-weight timer application that can run in terminal emulators.}
   spec.homepage      = "http://quellencode.org/"
   spec.license       = "MIT"
 
