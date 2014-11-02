@@ -122,7 +122,7 @@ Default format is "%X".
 #### Example
 
 ```shell
-$ rbtclk --format ".*'* %H:%M *'*."
+$ rbtclk --format "* %H:%M *"
 ```
 
 ```
