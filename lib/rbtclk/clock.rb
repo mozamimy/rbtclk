@@ -10,6 +10,7 @@ module Rbtclk
 
     def show
       Curses.init_screen
+      Curses.curs_set(0)
 
       begin
         view_thread = Thread.new do
