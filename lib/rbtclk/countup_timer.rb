@@ -1,5 +1,6 @@
 require "artii"
 require "curses"
+require "time"
 
 module Rbtclk
   class CountupTimer
