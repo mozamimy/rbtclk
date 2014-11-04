@@ -1,4 +1,3 @@
-require "curses"
 require "optparse"
 require "rbtclk/version"
 require "rbtclk/clock"
