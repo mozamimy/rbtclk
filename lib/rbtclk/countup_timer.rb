@@ -34,7 +34,8 @@ module Rbtclk
           loop do
             case Curses.getch
             when "q"
-              exit
+              Thread.kill(view_thread)
+              Thread.kill(input_thread)
             end
           end
         end
