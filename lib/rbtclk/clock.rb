@@ -1,15 +1,22 @@
 require "artii"
 require "curses"
+require "rbtclk/color_code"
 
 module Rbtclk
   class Clock
-    def initialize(font: "clb8x8", format: "%X")
+    include ColorCode
+
+    def initialize(font: "clb8x8", format: "%X", color: "black")
       @artii = Artii::Base.new(font: font)
       @format = format
+      @color = color
     end
 
     def show
       Curses.init_screen
+      Curses.start_color
+      Curses.use_default_colors
+      Curses.init_pair(1, translate(@color), -1)
       Curses.curs_set(0)
 
       begin
@@ -41,6 +48,7 @@ module Rbtclk
     def refresh
       Curses.clear
       Curses.setpos(0, 0)
+      Curses.attron(Curses.color_pair(1))
       Curses.addstr(@artii.asciify(Time.now.strftime(@format)))
       Curses.refresh
     end
