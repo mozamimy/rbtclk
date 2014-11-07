@@ -2,6 +2,8 @@
 
 A light-weight timer application that can run in terminal emulators :rabbit:
 
+![screenshot](https://raw.github.com/wiki/mozamimy/rbtclk/images/screenshot.gif)
+
 ## Requirement
 
 - Ruby 2.0 or later.
@@ -133,6 +135,18 @@ $ rbtclk --format "* %H:%M *"
     #                 ##    ##  ##            ##  ##   ######               #
    # #                ##    ##  ##     ##     ##  ##      ##               # #
   #   #               ##     ####      ##      ####      ####             #   #
+```
+
+### Enable color
+
+Rbtclk can show clock with ANSI colors.  
+Black(default), red, green, yellow, blue, magenta, cyan and white are available.
+
+#### Example
+
+```shell
+$ rbtclk -c magenta
+$ rbtclk --color magenta
 ```
 
 ## Progress Report
