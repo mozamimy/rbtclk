@@ -1,17 +1,25 @@
 require "artii"
 require "curses"
 require "time"
+require "rbtclk/color_code"
 
 module Rbtclk
   class CountupTimer
-    def initialize(font: "clb8x8", format: "%X")
-      @artii = Artii::Base.new(font: font, format: "%X")
+    include ColorCode
+
+    def initialize(font: "clb8x8", format: "%X", color: "black")
+      @artii = Artii::Base.new(font: font)
       @format = format
+      @color = color
     end
 
     def show
       Curses.init_screen
+      Curses.start_color
+      Curses.use_default_colors
+      Curses.init_pair(1, translate(@color), -1)
       Curses.curs_set(0)
+
       @start_time = Time.now
 
       begin
@@ -26,7 +34,8 @@ module Rbtclk
           loop do
             case Curses.getch
             when "q"
-              exit
+              Thread.kill(view_thread)
+              Thread.kill(input_thread)
             end
           end
         end
@@ -42,6 +51,7 @@ module Rbtclk
     def refresh
       Curses.clear
       Curses.setpos(0, 0)
+      Curses.attron(Curses.color_pair(1))
       Curses.addstr(@artii.asciify((Time.parse("1/1") + (Time.now - @start_time)).strftime(@format)))
       Curses.refresh
     end
