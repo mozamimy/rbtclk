@@ -25,7 +25,6 @@ module Rbtclk
 
       if params[:version]
         puts Rbtclk::VERSION
-        exit
       else
         display_clock(params)
       end
