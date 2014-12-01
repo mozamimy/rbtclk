@@ -27,7 +27,8 @@ RSpec.describe Rbtclk do
       {mode: "clock",
        font: "clb8x8",
        format: "%X",
-       color: "black"}
+       color: "black",
+       time: "180"}
     end
 
     describe "#fill" do

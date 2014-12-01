@@ -7,6 +7,7 @@ require "optparse"
 require "rbtclk/version"
 require "rbtclk/clock"
 require "rbtclk/countup_timer"
+require "rbtclk/countdown_timer"
 
 module Rbtclk
   class << self
@@ -19,6 +20,7 @@ module Rbtclk
         opt.on("--font FONT") { |f| params[:font] = f }
         opt.on("--version") { |v| params[:version] = v }
         opt.on("--color COLOR") { |c| params[:color] = c }
+        opt.on("--time TIME") { |t| params[:time] = t }
 
         opt.parse!(args)
       end
@@ -42,6 +44,10 @@ module Rbtclk
         remove_extra_params(params)
         timer = CountupTimer.new(params)
         timer.show
+      when "countdown"
+        remove_extra_params(params)
+        timer = CountdownTimer.new(params)
+        timer.show
       else
         warn "#{params[:mode]} mode is not supported."
         warn "You can use [clock]."
@@ -53,7 +59,8 @@ module Rbtclk
       {mode: params[:mode] || "clock",
        font: params[:font] || "clb8x8",
        format: params[:format] || "%X",
-       color: params[:color] || "black"}
+       color: params[:color] || "black",
+       time: params[:time] || "180"}
     end
 
     def remove_extra_params(params)
