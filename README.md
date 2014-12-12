@@ -153,7 +153,10 @@ $ rbtclk --color magenta
 
 - [x] Clock
 - [x] Countup Timer
-- [ ] Countdown Timer
+- [x] Countdown Timer
+- [ ] Configuration by ~/.rbtclk
+- [ ] Sound
+- [ ] Refactoring
 
 ## Code Status
 
