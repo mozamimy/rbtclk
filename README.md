@@ -34,8 +34,7 @@ $ rbtclk
 
 ### Mode
 
-Now we support only clock mode and countup mode.  
-Countdown timer mode is our future works.
+This application supports some modes; clock, countup and countdown.
 
 #### Example
 
@@ -67,6 +66,21 @@ $ rbtclk -m countup
  ##  ##   ##  ##            ##  ##   ##  ##               ##        ##
  ##  ##   ##  ##     ##     ##  ##   ##  ##     ##        ##    ##  ##
   ####     ####      ##      ####     ####      ##        ##     ####
+```
+
+```shell
+$ rbtclk --mode countdown --time 90
+$ rbtclk -m countdown --time 90
+```
+
+```
+  ####     ####              ####       ##              ####     ####
+ ##  ##   ##  ##     ##     ##  ##     ###      ##     ##  ##   ##  ##
+ ##  ##   ##  ##     ##     ##  ##      ##      ##         ##   ##  ##
+ ##  ##   ##  ##            ##  ##      ##               ###    ##  ##
+ ##  ##   ##  ##            ##  ##      ##                 ##   ##  ##
+ ##  ##   ##  ##     ##     ##  ##      ##      ##     ##  ##   ##  ##
+  ####     ####      ##      ####       ##      ##      ####     ####
 ```
 
 ### Change font
@@ -153,7 +167,10 @@ $ rbtclk --color magenta
 
 - [x] Clock
 - [x] Countup Timer
-- [ ] Countdown Timer
+- [x] Countdown Timer
+- [ ] Configuration by ~/.rbtclk
+- [ ] Sound
+- [ ] Refactoring
 
 ## Code Status
 

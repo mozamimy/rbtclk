@@ -2,19 +2,33 @@ require 'spec_helper'
 
 RSpec.describe Rbtclk do
   describe "#run" do
-    pending "this is pending bcause on the issue#3 (https://github.com/mozamimy/rbtclk/issues/3)"
+    context "clock/countdown/countup modes" do
+      pending "this is pending bcause on the issue#3 (https://github.com/mozamimy/rbtclk/issues/3)"
+    end
+
+    context "-v is given as an option" do
+      subject { -> { Rbtclk.run(["-v"]) } }
+      it { expect(subject).to be_output "#{Rbtclk::VERSION}\n" }
+    end
+
+    context "--version is given as an option" do
+      subject { -> { Rbtclk.run(["--version"]) } }
+      it { expect(subject).to be_output "#{Rbtclk::VERSION}\n" }
+    end
   end
 
   describe "#display_clock" do
     pending "this is pending bcause on the issue#3 (https://github.com/mozamimy/rbtclk/issues/3)"
   end
 
+
   describe "methods related with params" do
     let(:filled_params) do
       {mode: "clock",
        font: "clb8x8",
        format: "%X",
-       color: "black"}
+       color: "black",
+       time: "180"}
     end
 
     describe "#fill" do
