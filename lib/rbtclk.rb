@@ -50,7 +50,7 @@ module Rbtclk
         timer.show
       else
         warn "#{params[:mode]} mode is not supported."
-        warn "You can use [clock]."
+        warn "You can use [clock, countup, countdown]."
         exit(1)
       end
     end
