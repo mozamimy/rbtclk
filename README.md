@@ -151,6 +151,18 @@ $ rbtclk --format "* %H:%M *"
   #   #               ##     ####      ##      ####      ####             #   #
 ```
 
+### Enable color
+
+Rbtclk can show clock with ANSI colors.  
+Black(default), red, green, yellow, blue, magenta, cyan and white are available.
+
+#### Example
+
+```shell
+$ rbtclk -c magenta
+$ rbtclk --color magenta
+```
+
 ## Configuration by .rbtclk file
 
 The default bhavior can be changed by `~/.rbtclk` file.  
@@ -176,18 +188,6 @@ Rbtclk.configure do |c|
   # You can specify limit time as seconds in countdown timer.
   c.time = "180"
 end
-```
-
-### Enable color
-
-Rbtclk can show clock with ANSI colors.  
-Black(default), red, green, yellow, blue, magenta, cyan and white are available.
-
-#### Example
-
-```shell
-$ rbtclk -c magenta
-$ rbtclk --color magenta
 ```
 
 ## Progress Report
