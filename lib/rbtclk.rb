@@ -67,7 +67,7 @@ module Rbtclk
       params.delete(:mode)
     end
 
-    def load_configure
+    def load_config
       dot_rbtclk_in_home = File.expand_path(".rbtclk", "~")
 
       if File.exist?(dot_rbtclk_in_home)
@@ -89,5 +89,5 @@ module Rbtclk
     end
   end
 
-  load_configure
+  load_config
 end
