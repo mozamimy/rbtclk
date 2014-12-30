@@ -5,11 +5,14 @@
 
 require "optparse"
 require "rbtclk/version"
+require "rbtclk/config_loader"
 require "rbtclk/clock"
 require "rbtclk/countup_timer"
 require "rbtclk/countdown_timer"
 
 module Rbtclk
+  extend ConfigLoader
+
   class << self
     def run(args)
       params = {}
@@ -68,27 +71,6 @@ module Rbtclk
 
       if params[:mode] != "countdown"
         params.delete(:time)
-      end
-    end
-
-    def load_config
-      dot_rbtclk_in_home = File.expand_path(".rbtclk", "~")
-
-      if File.exist?(dot_rbtclk_in_home)
-        load dot_rbtclk_in_home
-      else
-        load File.expand_path("../../config/default.rb", __FILE__)
-      end
-    end
-
-    # Methods for configuration DSL
-    def configure(&block)
-      Rbtclk.instance_eval(&block)
-    end
-
-    %w(mode font format color time).each do |attr|
-      define_method "#{attr}=" do |value|
-        const_set attr.to_s.upcase, value
       end
     end
   end
