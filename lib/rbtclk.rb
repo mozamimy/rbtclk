@@ -65,6 +65,10 @@ module Rbtclk
 
     def remove_extra_params(params)
       params.delete(:mode)
+
+      if params[:mode] != "countdown"
+        params.delete(:time)
+      end
     end
 
     def load_config
