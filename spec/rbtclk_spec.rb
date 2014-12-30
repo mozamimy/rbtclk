@@ -31,6 +31,14 @@ RSpec.describe Rbtclk do
        time: "180"}
     end
 
+    before do
+      filled_params.each do |attribute, value|
+        const_name = attribute.to_s.upcase
+        Rbtclk.send(:remove_const, const_name)
+        Rbtclk.const_set(const_name, value)
+      end
+    end
+
     describe "#fill" do
       context "there are no blank elements in the argument" do
         subject { Rbtclk.fill(filled_params) }
