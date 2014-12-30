@@ -4,5 +4,5 @@
 # http://opensource.org/licenses/mit-license.php
 
 module Rbtclk
-  VERSION = "0.3.2"
+  VERSION = "0.3.3"
 end
