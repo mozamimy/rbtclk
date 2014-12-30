@@ -163,12 +163,39 @@ $ rbtclk -c magenta
 $ rbtclk --color magenta
 ```
 
+## Configuration by .rbtclk file
+
+The default bhavior can be changed by `~/.rbtclk` file.  
+Sample config file is in `RBTCLK_ROOT/config/default.rb`.
+
+```ruby
+Rbtclk.configure do |c|
+  # clock, countup and countdown are available.
+  c.mode = "clock"
+
+  # Font setting depends on Artii library.
+  # https://github.com/miketierney/artii/tree/master/lib/figlet/fonts
+  # You can use a lot of font types.
+  c.font = "clb8x8"
+
+  # You can use Ruby's Date#strftime style.
+  # It is compatible with strftime(3) of standard C library.
+  c.format = "%X"
+
+  # black, red, green, yellow, blue, magenta, cyan and white are available.
+  c.color = "black"
+
+  # You can specify limit time as seconds in countdown timer.
+  c.time = "180"
+end
+```
+
 ## Progress Report
 
 - [x] Clock
 - [x] Countup Timer
 - [x] Countdown Timer
-- [ ] Configuration by ~/.rbtclk
+- [x] Configuration by ~/.rbtclk
 - [ ] Sound
 - [ ] Refactoring
 
