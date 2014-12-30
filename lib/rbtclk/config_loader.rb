@@ -19,7 +19,7 @@ module Rbtclk
 
     # Methods for configuration DSL
     def configure(&block)
-      Rbtclk.instance_eval(&block)
+      self.instance_eval(&block)
     end
 
     %w(mode font format color time).each do |attr|
