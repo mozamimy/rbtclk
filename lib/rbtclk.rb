@@ -56,15 +56,42 @@ module Rbtclk
     end
 
     def fill(params)
-      {mode: params[:mode] || "clock",
-       font: params[:font] || "clb8x8",
-       format: params[:format] || "%X",
-       color: params[:color] || "black",
-       time: params[:time] || "180"}
+      {mode: params[:mode] || MODE,
+       font: params[:font] || FONT,
+       format: params[:format] || FORMAT,
+       color: params[:color] || COLOR,
+       time: params[:time] || TIME}
     end
 
     def remove_extra_params(params)
       params.delete(:mode)
+
+      if params[:mode] != "countdown"
+        params.delete(:time)
+      end
+    end
+
+    def load_config
+      dot_rbtclk_in_home = File.expand_path(".rbtclk", "~")
+
+      if File.exist?(dot_rbtclk_in_home)
+        load dot_rbtclk_in_home
+      else
+        load File.expand_path("../../config/default.rb", __FILE__)
+      end
+    end
+
+    # Methods for configuration DSL
+    def configure(&block)
+      Rbtclk.instance_eval(&block)
+    end
+
+    %w(mode font format color time).each do |attr|
+      define_method "#{attr}=" do |value|
+        const_set attr.to_s.upcase, value
+      end
     end
   end
+
+  load_config
 end

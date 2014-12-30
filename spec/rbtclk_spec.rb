@@ -31,6 +31,14 @@ RSpec.describe Rbtclk do
        time: "180"}
     end
 
+    before do
+      filled_params.each do |attribute, value|
+        const_name = attribute.to_s.upcase
+        Rbtclk.send(:remove_const, const_name)
+        Rbtclk.const_set(const_name, value)
+      end
+    end
+
     describe "#fill" do
       context "there are no blank elements in the argument" do
         subject { Rbtclk.fill(filled_params) }
@@ -50,15 +58,34 @@ RSpec.describe Rbtclk do
     end
 
     describe "#remove_extra_params" do
-      let(:params_that_has_no_mode) do
-        filled_params.delete(:mode)
-        filled_params
-      end
-
       context "params contains :mode value" do
-        specify ":mode value is removed" do
-          Rbtclk.remove_extra_params(filled_params)
-          expect(filled_params).to eq params_that_has_no_mode
+        let(:params_that_has_no_mode) do
+          filled_params.delete(:mode)
+          filled_params
+        end
+
+        let(:params_that_has_no_mode_and_no_time) do
+          params_that_has_no_mode.delete(:time)
+          params_that_has_no_mode
+        end
+
+        context "mode is clock" do
+          specify ":mode and :time values are removed" do
+            Rbtclk.remove_extra_params(filled_params)
+            expect(filled_params).to eq params_that_has_no_mode_and_no_time
+          end
+        end
+
+        context "mode is countdown" do
+          let(:filled_params_whose_mode_is_clock) do
+            filled_params[:mode] = "countdown"
+            filled_params
+          end
+
+          specify ":mode and :time values are removed" do
+            Rbtclk.remove_extra_params(filled_params)
+            expect(filled_params_whose_mode_is_clock).to eq params_that_has_no_mode
+          end
         end
       end
     end
