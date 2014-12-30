@@ -13,7 +13,7 @@ module Rbtclk
       if File.exist?(dot_rbtclk_in_home)
         load dot_rbtclk_in_home
       else
-        load File.expand_path("../../config/default.rb", __FILE__)
+        load File.expand_path("../../../config/default.rb", __FILE__)
       end
     end
 
