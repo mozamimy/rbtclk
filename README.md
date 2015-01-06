@@ -165,7 +165,7 @@ $ rbtclk --color magenta
 
 ## Configuration by .rbtclk file
 
-The default bhavior can be changed by `~/.rbtclk` file.  
+The default behavior can be changed by `~/.rbtclk` file.  
 Sample config file is in `RBTCLK_ROOT/config/default.rb`.
 
 ```ruby
