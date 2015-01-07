@@ -86,7 +86,7 @@ $ rbtclk -m countdown --time 90
 ### Change font
 
 This application depends on artii library (https://github.com/miketierney/artii).  
-You can use any fonts that are supported by artii.
+You can use any fonts are supported by artii.
 
 #### Example
 
