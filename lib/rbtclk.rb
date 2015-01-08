@@ -67,11 +67,11 @@ module Rbtclk
     end
 
     def remove_extra_params(params)
-      params.delete(:mode)
-
       if params[:mode] != "countdown"
         params.delete(:time)
       end
+
+      params.delete(:mode)
     end
   end
 

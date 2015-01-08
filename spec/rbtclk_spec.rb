@@ -60,31 +60,34 @@ RSpec.describe Rbtclk do
     describe "#remove_extra_params" do
       context "params contains :mode value" do
         let(:params_that_has_no_mode) do
-          filled_params.delete(:mode)
-          filled_params
+          dup_params = filled_params.dup
+          dup_params.delete(:mode)
+          dup_params
         end
 
         let(:params_that_has_no_mode_and_no_time) do
-          params_that_has_no_mode.delete(:time)
-          params_that_has_no_mode
+          dup_params = params_that_has_no_mode.dup
+          dup_params.delete(:time)
+          dup_params
         end
 
         context "mode is clock" do
           specify ":mode and :time values are removed" do
             Rbtclk.remove_extra_params(filled_params)
-            expect(filled_params).to eq params_that_has_no_mode_and_no_time
+            expect(filled_params).to eql params_that_has_no_mode_and_no_time
           end
         end
 
         context "mode is countdown" do
           let(:filled_params_whose_mode_is_clock) do
-            filled_params[:mode] = "countdown"
-            filled_params
+            dup_params = filled_params.dup
+            dup_params[:mode] = "countdown"
+            dup_params
           end
 
           specify ":mode and :time values are removed" do
-            Rbtclk.remove_extra_params(filled_params)
-            expect(filled_params_whose_mode_is_clock).to eq params_that_has_no_mode
+            Rbtclk.remove_extra_params(filled_params_whose_mode_is_clock)
+            expect(filled_params_whose_mode_is_clock).to eql params_that_has_no_mode
           end
         end
       end
