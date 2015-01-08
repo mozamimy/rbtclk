@@ -40,7 +40,7 @@ module Rbtclk
           toggle_marker = true
           loop do
             blink(toggle_marker)
-            is_even = !is_even
+            toggle_marker = !toggle_marker
             sleep 1
           end
         end
