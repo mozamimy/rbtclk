@@ -6,6 +6,7 @@
 require "artii"
 require "curses"
 require "rbtclk/color_code"
+require "rbtclk/sound_player"
 
 module Rbtclk
   class CountdownTimer
@@ -17,6 +18,7 @@ module Rbtclk
       @color = color
       @time = time.to_i
       @elapsed = 0
+      @sound_player = SoundPlayer.new
     end
 
     def show
@@ -36,6 +38,8 @@ module Rbtclk
             @elapsed += 1
             sleep 1
           end
+
+          @sound_player.play
 
           toggle_marker = true
           loop do

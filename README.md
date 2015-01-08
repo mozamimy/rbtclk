@@ -34,7 +34,7 @@ $ rbtclk
 
 ### Mode
 
-This application supports some modes; clock, countup and countdown.
+This application supports some modes; clock, countup and countdown.  
 
 #### Example
 
@@ -82,6 +82,10 @@ $ rbtclk -m countdown --time 90
  ##  ##   ##  ##     ##     ##  ##      ##      ##     ##  ##   ##  ##
   ####     ####      ##      ####       ##      ##      ####     ####
 ```
+
+When remaining time reaches 0, rbtclk produces a sound to alert.  
+This function is experimental!  
+You can use this feature on only OS X.
 
 ### Change font
 
@@ -196,7 +200,9 @@ end
 - [x] Countup Timer
 - [x] Countdown Timer
 - [x] Configuration by ~/.rbtclk
-- [ ] Sound
+- [x] Sound
+- [ ] Sound on Linux/BSD
+- [ ] Controlling sound by command line options
 - [ ] Refactoring
 
 ## Code Status
@@ -210,3 +216,7 @@ end
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Special Thanks!
+Alert sound is distributed by [Taira Komori](http://taira-komori.jpn.org/freesounden.html).
+Thanks!
