@@ -19,6 +19,7 @@ RSpec.describe Rbtclk::ConfigLoader do
         c.format = "cheshire-cat"
         c.color = "queen-of-hearts"
         c.time = "march-hare"
+        c.no_alarm = true
       end
     end
 
@@ -27,6 +28,7 @@ RSpec.describe Rbtclk::ConfigLoader do
     it { expect(target_klass::FORMAT).to eq "cheshire-cat" }
     it { expect(target_klass::COLOR).to eq "queen-of-hearts" }
     it { expect(target_klass::TIME).to eq "march-hare" }
+    it { expect(target_klass::NO_ALARM).to eq true }
   end
 
   describe ".mode" do
@@ -52,5 +54,10 @@ RSpec.describe Rbtclk::ConfigLoader do
   describe ".time" do
     before { target_klass.time = "march-hare" }
     it { expect(target_klass::TIME).to eq "march-hare" }
+  end
+
+  describe ".no_alarm" do
+    before { target_klass.no_alarm = true }
+    it { expect(target_klass::NO_ALARM).to eq true }
   end
 end

@@ -10,11 +10,8 @@ module Rbtclk
     def load_config
       dot_rbtclk_in_home = File.expand_path(".rbtclk", "~")
 
-      if File.exist?(dot_rbtclk_in_home)
-        load dot_rbtclk_in_home
-      else
-        load File.expand_path("../../../config/default.rb", __FILE__)
-      end
+      load File.expand_path("../../../config/default.rb", __FILE__)
+      load dot_rbtclk_in_home if File.exist?(dot_rbtclk_in_home)
     end
 
     # Methods for configuration DSL
@@ -22,9 +19,12 @@ module Rbtclk
       self.instance_eval(&block)
     end
 
-    %w(mode font format color time).each do |attr|
+    %w(mode font format color time no_alarm).each do |attr|
       define_method "#{attr}=" do |value|
-        const_set attr.to_s.upcase, value
+        const_name = attr.to_s.upcase
+
+        remove_const const_name if const_defined?(const_name)
+        const_set const_name, value
       end
     end
   end

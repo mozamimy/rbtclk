@@ -28,7 +28,8 @@ RSpec.describe Rbtclk do
        font: "clb8x8",
        format: "%X",
        color: "black",
-       time: "180"}
+       time: "180",
+       no_alarm: false}
     end
 
     before do
@@ -65,16 +66,17 @@ RSpec.describe Rbtclk do
           dup_params
         end
 
-        let(:params_that_has_no_mode_and_no_time) do
+        let(:params_that_has_no_mode_and_no_time_and_no_alarm) do
           dup_params = params_that_has_no_mode.dup
           dup_params.delete(:time)
+          dup_params.delete(:no_alarm)
           dup_params
         end
 
         context "mode is clock" do
           specify ":mode and :time values are removed" do
             Rbtclk.remove_extra_params(filled_params)
-            expect(filled_params).to eql params_that_has_no_mode_and_no_time
+            expect(filled_params).to eql params_that_has_no_mode_and_no_time_and_no_alarm
           end
         end
 
