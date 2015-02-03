@@ -7,6 +7,21 @@ A light-weight timer application that can run in terminal emulators :rabbit:
 ## Requirement
 
 - Ruby 2.0 or later.
+- afplay or mpg123
+
+This application is tested on OS X 10.10 and Arch Linux.
+
+Rbtclk needs a sound player tool like afplay or mpg123.  
+OS X has normally afplay as default.  
+If you use other UNIX like system, you should install mpg123.
+
+On Arch Linux,
+
+```shell
+$ sudo pacman -S mpg123
+```
+
+Rbtclk works without sound player tools, but alerming by sound file is disabled.
 
 ## Installation
 
