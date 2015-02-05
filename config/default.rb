@@ -21,4 +21,7 @@ Rbtclk.configure do |c|
 
   # You can specify limit time as seconds in countdown timer.
   c.time = "180"
+
+  # The alarm sound is suppressed if no_alarm is true.
+  c.no_alarm = false
 end

@@ -24,6 +24,7 @@ module Rbtclk
         opt.on("--version") { |v| params[:version] = v }
         opt.on("--color COLOR") { |c| params[:color] = c }
         opt.on("--time TIME") { |t| params[:time] = t }
+        opt.on("--noalarm") { |n| params[:no_alarm] = n }
 
         opt.parse!(args)
       end
@@ -63,15 +64,17 @@ module Rbtclk
        font: params[:font] || FONT,
        format: params[:format] || FORMAT,
        color: params[:color] || COLOR,
-       time: params[:time] || TIME}
+       time: params[:time] || TIME,
+       no_alarm: params[:no_alarm] || NO_ALARM}
     end
 
     def remove_extra_params(params)
-      params.delete(:mode)
-
       if params[:mode] != "countdown"
         params.delete(:time)
+        params.delete(:no_alarm)
       end
+
+      params.delete(:mode)
     end
   end
 

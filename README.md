@@ -7,6 +7,21 @@ A light-weight timer application that can run in terminal emulators :rabbit:
 ## Requirement
 
 - Ruby 2.0 or later.
+- afplay or mpg123
+
+This application is tested on OS X 10.10 and Arch Linux.
+
+Rbtclk needs a sound player tool like afplay or mpg123.  
+OS X has normally afplay as default.  
+If you use other UNIX like system, you should install mpg123.
+
+On Arch Linux,
+
+```shell
+$ sudo pacman -S mpg123
+```
+
+Rbtclk works without sound player tools, but alerming by sound file is disabled.
 
 ## Installation
 
@@ -34,7 +49,7 @@ $ rbtclk
 
 ### Mode
 
-This application supports some modes; clock, countup and countdown.
+This application supports some modes; clock, countup and countdown.  
 
 #### Example
 
@@ -83,10 +98,14 @@ $ rbtclk -m countdown --time 90
   ####     ####      ##      ####       ##      ##      ####     ####
 ```
 
+When remaining time reaches 0, rbtclk produces a sound to alert.  
+This function is experimental!  
+You can use this feature on only OS X.
+
 ### Change font
 
 This application depends on artii library (https://github.com/miketierney/artii).  
-You can use any fonts that are supported by artii.
+You can use any fonts are supported by artii.
 
 #### Example
 
@@ -187,6 +206,9 @@ Rbtclk.configure do |c|
 
   # You can specify limit time as seconds in countdown timer.
   c.time = "180"
+
+  # The alarm sound is suppressed if no_alarm is true.
+  c.no_alarm = false
 end
 ```
 
@@ -196,7 +218,9 @@ end
 - [x] Countup Timer
 - [x] Countdown Timer
 - [x] Configuration by ~/.rbtclk
-- [ ] Sound
+- [x] Sound
+- [ ] Sound on Linux/BSD
+- [ ] Controlling sound by command line options
 - [ ] Refactoring
 
 ## Code Status
@@ -210,3 +234,7 @@ end
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Special Thanks!
+Alert sound is distributed by [Taira Komori](http://taira-komori.jpn.org/freesounden.html).
+Thanks!

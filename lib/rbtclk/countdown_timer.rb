@@ -6,17 +6,20 @@
 require "artii"
 require "curses"
 require "rbtclk/color_code"
+require "rbtclk/sound_player"
 
 module Rbtclk
   class CountdownTimer
     include ColorCode
 
-    def initialize(font: "clb8x8", format: "%X", color: "black", time: 180)
+    def initialize(font: "clb8x8", format: "%X", color: "black", time: 180, no_alarm: false)
       @artii = Artii::Base.new(font: font)
       @format = format
       @color = color
       @time = time.to_i
+      @no_alarm = no_alarm
       @elapsed = 0
+      @sound_player = SoundPlayer.new
     end
 
     def show
@@ -37,10 +40,12 @@ module Rbtclk
             sleep 1
           end
 
+          @sound_player.play unless @no_alarm
+
           toggle_marker = true
           loop do
             blink(toggle_marker)
-            is_even = !is_even
+            toggle_marker = !toggle_marker
             sleep 1
           end
         end
