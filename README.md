@@ -219,7 +219,7 @@ end
 - [x] Countdown Timer
 - [x] Configuration by ~/.rbtclk
 - [x] Sound
-- [ ] Sound on Linux/BSD
+- [x] Sound on Linux/BSD
 - [ ] Controlling sound by command line options
 - [ ] Refactoring
 
