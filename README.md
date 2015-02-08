@@ -220,6 +220,7 @@ end
 - [x] Configuration by ~/.rbtclk
 - [x] Sound
 - [x] Sound on Linux/BSD
+- [ ] Create AUR package for Arch Linux
 - [ ] Controlling sound by command line options
 - [ ] Refactoring
 
