@@ -68,6 +68,7 @@ module Rbtclk
     end
 
     private
+
     def refresh
       Curses.clear
       Curses.setpos(0, 0)
