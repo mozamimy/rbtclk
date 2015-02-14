@@ -31,7 +31,7 @@ module Rbtclk
         view_thread = Thread.new do
           loop do
             refresh
-            sleep(1)
+            sleep 1
           end
         end
 
