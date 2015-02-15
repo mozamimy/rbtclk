@@ -23,12 +23,7 @@ module Rbtclk
     end
 
     def show
-      Curses.init_screen
-      Curses.start_color
-      Curses.use_default_colors
-      Curses.init_pair(1, translate(@color), -1)
-      Curses.init_pair(2, translate("magenta"), translate("black"))
-      Curses.curs_set(0)
+      initialize_screen
 
       @start_time = Time.now + 1
 
@@ -68,6 +63,15 @@ module Rbtclk
     end
 
     private
+
+    def initialize_screen
+      Curses.init_screen
+      Curses.start_color
+      Curses.use_default_colors
+      Curses.init_pair(1, translate(@color), -1)
+      Curses.init_pair(2, translate("magenta"), translate("black"))
+      Curses.curs_set(0)
+    end
 
     def refresh
       Curses.clear
