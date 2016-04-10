@@ -2,9 +2,17 @@ language: ruby
 sudo: false
 rvm:
   - 2.0.0
-  - 2.1.7
-  - 2.2.3
+  - 2.1.10
+  - 2.2.4
+  - 2.3.0
 notifications:
   on_success: change
   on_failure: change
   on_start: false
+
+# NOTE: The `addons` section is a workaround for Ruby 2.1.10
+#       A build failes if this section is removed.
+addons:
+  apt:
+    packages:
+      - libgmp-dev
